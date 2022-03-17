@@ -25,7 +25,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 Route::group(['prefix' => 'public'], function() {
   Route::get('/get-products-by-page', [PublicProductController::class, 'paginate']);
-  Route::get('/get-products', [PublicProductController::class, 'products']);
+  Route::get('/get-products', [PublicProductController::class, 'index']);
   Route::get('/get-product/{product}', [PublicProductController::class, 'show']);
   Route::get('/get-products-sort-by-order', [PublicProductController::class, 'productsSortByOrder']);
   Route::get('/get-products-by-category', [PublicProductController::class, 'productsByCategory']);
@@ -41,7 +41,7 @@ Route::group(['prefix' => 'public'], function() {
 
 Route::middleware('auth:sanctum')->group(function () {
   Route::get('/get-products-by-page', [PrivateProductController::class, 'paginate']);
-  Route::get('/get-products', [PrivateProductController::class, 'products']);
+  Route::get('/get-products', [PrivateProductController::class, 'index']);
   Route::get('/get-product/{product}', [PrivateProductController::class, 'show']);
   Route::get('/get-products-sort-by-order', [PrivateProductController::class, 'productsSortByOrder']);
   Route::get('/get-products-by-category', [PrivateProductController::class, 'productsByCategory']);
